@@ -272,35 +272,35 @@
   
   <script>
     // Mobile menu functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-      const sidebar = document.getElementById('sidebar');
-      const mainWrapper = document.getElementById('mainWrapper');
+  //  document.addEventListener('DOMContentLoaded', function() {
+    //  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+   //   const sidebar = document.getElementById('sidebar');
+   //   const mainWrapper = document.getElementById('mainWrapper');
 
-      if (mobileMenuBtn && sidebar) {
-        mobileMenuBtn.addEventListener('click', function(e) {
-          e.stopPropagation();
-          sidebar.classList.toggle('mobile-open');
-          mainWrapper.classList.toggle('menu-open');
-          mobileMenuBtn.classList.toggle('active');
-        });
+    //  if (mobileMenuBtn && sidebar) {
+     //   mobileMenuBtn.addEventListener('click', function(e) {
+       //   e.stopPropagation();
+       //   sidebar.classList.toggle('mobile-open');
+       //   mainWrapper.classList.toggle('menu-open');
+        //  mobileMenuBtn.classList.toggle('active');
+      //  });
 
-        mainWrapper.addEventListener('click', function(e) {
-          if (e.target === mainWrapper && mainWrapper.classList.contains('menu-open')) {
-            sidebar.classList.remove('mobile-open');
-            mainWrapper.classList.remove('menu-open');
-            mobileMenuBtn.classList.remove('active');
-          }
-        });
+      //  mainWrapper.addEventListener('click', function(e) {
+        //  if (e.target === mainWrapper && mainWrapper.classList.contains('menu-open')) {
+         //   sidebar.classList.remove('mobile-open');
+         //   mainWrapper.classList.remove('menu-open');
+          //  mobileMenuBtn.classList.remove('active');
+         // }
+        //});
 
-        document.querySelectorAll('.nav-link').forEach((link) => {
-          link.addEventListener('click', () => {
-            sidebar.classList.remove('mobile-open');
-            mainWrapper.classList.remove('menu-open');
-            mobileMenuBtn.classList.remove('active');
-          });
-        });
-      }
+      //  document.querySelectorAll('.nav-link').forEach((link) => {
+       //   link.addEventListener('click', () => {
+          //  sidebar.classList.remove('mobile-open');
+          //  mainWrapper.classList.remove('menu-open');
+           // mobileMenuBtn.classList.remove('active');
+        //  });
+       // });
+     // }
 
       // Filter functionality
       const statusFilter = document.getElementById('statusFilter');
@@ -325,3 +325,4 @@
 </body>
 
 </html>
+

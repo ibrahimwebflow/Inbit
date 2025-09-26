@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - Inbit</title>
+    <link rel="stylesheet" href="../assets/css/admin.css" />
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-head">
+            <h1 class="logo">Inbit Admin</h1>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="dashboard.html" class="nav-link active"><span class="icon">⌘</span><span class="label">Dashboard</span></a></li>
+            <li><a href="users.html" class="nav-link"><span class="icon">👥</span><span class="label">Users</span><span class="badge">5</span></a></li>
+            <li><a href="jobs.html" class="nav-link"><span class="icon">💼</span><span class="label">Jobs</span><span class="badge">3</span></a></li>
+            <li><a href="matches.html" class="nav-link"><span class="icon">🔍</span><span class="label">Matches</span></a></li>
+            <li><a href="fees.html" class="nav-link"><span class="icon">💰</span><span class="label">Fees</span></a></li>
+            <li><a href="contracts.html" class="nav-link"><span class="icon">📝</span><span class="label">Contracts</span></a></li>
+            <li><a href="payments.html" class="nav-link"><span class="icon">💳</span><span class="label">Payments</span></a></li>
+            <li><a href="reports.html" class="nav-link"><span class="icon">📊</span><span class="label">Reports</span></a></li>
+            <li><a href="settings.html" class="nav-link"><span class="icon">⚙️</span><span class="label">Settings</span></a></li>
+            <li class="nav-footer">
+                <a href="#" class="nav-link logout"><span class="icon">🚪</span><span class="label">Logout</span></a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-wrapper" id="mainWrapper">
+        <header class="top-header">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="header-content">
+                <h1>Admin Dashboard</h1>
+                <div class="user-info">
+                    <span>Welcome, Admin!</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="admin-container">
+            <!-- Stats Overview -->
+            <section class="admin-section">
+                <div class="section-header">
+                    <h2>Platform Overview</h2>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">1,247</div>
+                        <div class="stat-label">Total Users</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">356</div>
+                        <div class="stat-label">Active Jobs</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">89</div>
+                        <div class="stat-label">Pending Matches</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">$24,589</div>
+                        <div class="stat-label">Total Revenue</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="admin-section">
+                <div class="section-header">
+                    <h2>Quick Actions</h2>
+                </div>
+                <nav class="admin-nav">
+                    <button class="active" data-tab="users" id="btnUsers">Pending Users</button>
+                    <button data-tab="jobs" id="btnJobs">Pending Jobs</button>
+                    <button data-tab="fees" id="btnFees">Pending Fees</button>
+                    <button data-tab="matches" id="btnMatch">Pending Matches</button>
+                </nav>
+                
+                <div id="results" class="tab-content active">
+                    <!-- Content will be loaded here by admin.js -->
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="../assets/js/admin-ui.js"></script>
+    <script src="../assets/js/admin.js" type="module"></script>
+</body>
+</html>

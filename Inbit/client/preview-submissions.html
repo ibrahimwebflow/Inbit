@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview Submissions - Inbit</title>
+  <link rel="stylesheet" href="../assets/css/client.css">
+  <link rel="stylesheet" href="../assets/css/client/preview-submissions.css">
+</head>
+<body>
+    <!-- ┌------------- SIDEBAR NAV -------------┐ -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-head">
+            <h1 class="logo">Inbit</h1>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="dashboard.html" class="nav-link"><span class="icon">📊</span><span class="label">Dashboard</span></a></li>
+            <li><a href="post-job.html" class="nav-link"><span class="icon">➕</span><span class="label">Post Job</span></a></li>
+            <li><a href="matches.html" class="nav-link"><span class="icon">🔍</span><span class="label">Matches</span></a></li>
+            <li><a href="hires.html" class="nav-link"><span class="icon">👥</span><span class="label">My Hires</span></a></li>
+            <li><a href="contracts.html" class="nav-link"><span class="icon">📝</span><span class="label">Contracts</span></a></li>
+            <li><a href="preview-submissions.html" class="nav-link active"><span class="icon">👁️</span><span class="label">Previews</span></a></li>
+            <li><a href="messages.html" class="nav-link"><span class="icon">💬</span><span class="label">Messages</span></a></li>
+            <li><a href="notifications.html" class="nav-link"><span class="icon">🔔</span><span class="label">Notifications</span></a></li>
+            <li><a href="settings.html" class="nav-link"><span class="icon">⚙️</span><span class="label">Settings</span></a></li>
+            <li class="nav-footer"><a href="logout.html" class="nav-link logout"><span class="icon">🚪</span><span class="label">Logout</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- ┌------------- MAIN CONTENT WRAPPER -------------┐ -->
+    <div class="main-wrapper" id="mainWrapper">
+        <header class="top-header">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="header-content">
+                <h1>Preview Submissions</h1>
+                <div class="user-info">
+                    <span>Review freelancer progress</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-container">
+            <section class="dashboard-section">
+                <div class="section-header">
+                    <h2>Project Previews</h2>
+                    <div class="previews-summary">
+                        <span class="summary-item">
+                            <span class="summary-label">Total</span>
+                            <span class="summary-value" id="totalPreviews">0</span>
+                        </span>
+                        <span class="summary-item">
+                            <span class="summary-label">Pending</span>
+                            <span class="summary-value" id="pendingPreviews">0</span>
+                        </span>
+                        <span class="summary-item">
+                            <span class="summary-label">Reviewed</span>
+                            <span class="summary-value" id="reviewedPreviews">0</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="previews-filters">
+                    <button class="filter-btn active" data-filter="all">All Previews</button>
+                    <button class="filter-btn" data-filter="pending">Pending Review</button>
+                    <button class="filter-btn" data-filter="reviewed">Reviewed</button>
+                </div>
+
+                <div id="previewsList" class="previews-grid">
+                    <div class="loading">Loading preview submissions...</div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+            const sidebar = document.getElementById("sidebar");
+            const mainWrapper = document.getElementById("mainWrapper");
+            
+            if (mobileMenuBtn && sidebar) {
+                mobileMenuBtn.addEventListener("click", function(e) {
+                    e.stopPropagation();
+                    sidebar.classList.toggle("mobile-open");
+                    mainWrapper.classList.toggle("menu-open");
+                    mobileMenuBtn.classList.toggle("active");
+                });
+
+                mainWrapper.addEventListener('click', function(e) {
+                    if (e.target === mainWrapper && mainWrapper.classList.contains('menu-open')) {
+                        sidebar.classList.remove("mobile-open");
+                        mainWrapper.classList.remove("menu-open");
+                        mobileMenuBtn.classList.remove("active");
+                    }
+                });
+
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        sidebar.classList.remove("mobile-open");
+                        mainWrapper.classList.remove("menu-open");
+                        mobileMenuBtn.classList.remove("active");
+                    });
+                });
+            }
+
+            // Filter functionality
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    filterPreviews(filter);
+                });
+            });
+        });
+
+        function filterPreviews(filter) {
+            const previews = document.querySelectorAll('.preview-card');
+            previews.forEach(preview => {
+                const status = preview.dataset.status;
+                switch(filter) {
+                    case 'pending':
+                        preview.style.display = status === 'submitted' ? 'block' : 'none';
+                        break;
+                    case 'reviewed':
+                        preview.style.display = status !== 'submitted' ? 'block' : 'none';
+                        break;
+                    default:
+                        preview.style.display = 'block';
+                }
+            });
+        }
+    </script>
+
+    <script type="module" src="../assets/js/preview-submissions-c.js"></script>
+</body>
+</html>

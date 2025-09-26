@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>Admin Payment Methods</title></head>
+<body>
+  <h1>Admin Payment Methods</h1>
+
+  <form id="methodForm">
+    <label>Type:
+      <select id="type"><option value="bank">Bank</option><option value="crypto">Crypto</option><option value="link">Payment Link</option></select>
+    </label><br>
+    <label>Label: <input id="label" /></label><br>
+    <label>Details (JSON): <textarea id="details" placeholder='{"bank_name":"...", "account_number":"..."}'></textarea></label><br>
+    <label>Instructions: <input id="instructions" /></label><br>
+    <label>QR / Image URL (optional): <input id="proof_img" /></label><br>
+    <button type="submit">Save</button>
+  </form>
+
+  <div id="methodsList"></div>
+
+  <script type="module" src="../assets/js/admin/payment-methods.js"></script>
+</body>
+</html>

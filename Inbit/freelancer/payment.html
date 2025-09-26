@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Payment Details</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <h2>My Payment Details</h2>
+
+  <form id="paymentForm">
+    <label>Bank Name</label>
+    <input type="text" id="bankName" required />
+
+    <label>Account Number</label>
+    <input type="text" id="accountNumber" required />
+
+    <label>Account Name</label>
+    <input type="text" id="accountName" required />
+
+    <button type="submit">Save Payment Details</button>
+  </form>
+
+  <div id="currentDetails"></div>
+
+  <script type="module" src="../assets/js/freelancer/payment.js"></script>
+</body>
+</html>

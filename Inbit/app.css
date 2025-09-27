@@ -1334,3 +1334,62 @@ input:focus {
 .skip-link:focus {
     top: 0;
 }
+
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--card-bg);
+        padding: 1.5rem;
+        box-shadow: var(--shadow-lg);
+        border-top: 1px solid var(--border);
+        z-index: 99;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links a {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--border);
+    }
+    
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+    
+    .auth-buttons {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--card-bg);
+        padding: 1rem 1.5rem;
+        box-shadow: var(--shadow-lg);
+        border-top: 1px solid var(--border);
+        z-index: 98;
+        margin-top: 200px; /* Adjust based on nav-links height */
+    }
+    
+    .auth-buttons.active {
+        display: flex;
+        gap: 0.5rem;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    /* Adjust navbar for mobile */
+    .navbar {
+        position: relative;
+    }
+    }

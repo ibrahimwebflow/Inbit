@@ -1400,3 +1400,10 @@ input:focus {
 .mobile-menu-btn.active i {
     transform: rotate(90deg);
 }
+
+
+/* Ensure hamburger is always visible inside the sticky header */
+.mobile-menu-btn {
+    color: var(--primary);   /* or any colour you like */
+    background: rgba(255,255,255,.08);  /* optional subtle background */
+}

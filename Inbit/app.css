@@ -1428,3 +1428,30 @@ input:focus {
         height:44px;
     }
     }
+/* emergency visibility test – delete later */
+body::after{
+    content:"🍔 MOBILE MENU BTN BELOW";
+    position:fixed;
+    bottom:10px;
+    left:10px;
+    background:red;
+    color:#fff;
+    padding:4px 8px;
+    font-size:12px;
+    z-index:9999;
+}
+.mobile-menu-btn{
+    display:block !important;
+    position:fixed !important;
+    top:10px !important;
+    right:10px !important;
+    width:50px !important;
+    height:50px !important;
+    background:lime !important;
+    color:#000 !important;
+    font-size:30px !important;
+    line-height:50px !important;
+    text-align:center !important;
+    z-index:10000 !important;
+    border-radius:50% !important;
+      }

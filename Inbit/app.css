@@ -1393,3 +1393,10 @@ input:focus {
         position: relative;
     }
     }
+.mobile-menu-btn i {
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu-btn.active i {
+    transform: rotate(90deg);
+}

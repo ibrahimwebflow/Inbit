@@ -5,742 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inbit - Halal Freelancing Marketplace</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #10b981;
-            --dark: #1f2937;
-            --light: #f9fafb;
-            --gray: #6b7280;
-            --card-bg: #ffffff;
-            --text: #111827;
-            --border: #e5e7eb;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --radius: 1rem;
-        }
-
-        .dark-mode {
-            --primary: #3b82f6;
-            --primary-dark: #2563eb;
-            --secondary: #10b981;
-            --dark: #f9fafb;
-            --light: #111827;
-            --gray: #9ca3af;
-            --card-bg: #1f2937;
-            --text: #f9fafb;
-            --border: #374151;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--light);
-            color: var(--text);
-            line-height: 1.6;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header & Navigation */
-        header {
-            background-color: var(--card-bg);
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-        }
-
-        .logo i {
-            margin-right: 0.5rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .auth-buttons {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .btn {
-            padding: 0.6rem 1.2rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: none;
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--primary);
-            border: 1px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background-color: rgba(37, 99, 235, 0.1);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--text);
-            border: 1px solid var(--border);
-        }
-
-        .btn-outline:hover {
-            background-color: rgba(0, 0, 0, 0.05);
-        }
-
-        .dark-mode-toggle {
-            background: none;
-            border: none;
-            color: var(--text);
-            cursor: pointer;
-            font-size: 1.2rem;
-            margin-left: 1rem;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 4rem 0;
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-        }
-
-        .hero-content {
-            flex: 1;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--gray);
-            margin-bottom: 2rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-
-        .hero-visual {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .dashboard-preview {
-            width: 100%;
-            max-width: 500px;
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-        }
-
-        .dashboard-header {
-            background: var(--primary);
-            color: white;
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .dashboard-content {
-            padding: 1.5rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .dashboard-card {
-            background: var(--light);
-            border-radius: 0.5rem;
-            padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .dashboard-card h4 {
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-
-        .dashboard-card p {
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-
-        /* Search Section */
-        .search-section {
-            padding: 2rem 0;
-            background-color: var(--card-bg);
-            border-radius: var(--radius);
-            margin-bottom: 4rem;
-            box-shadow: var(--shadow);
-        }
-
-        .search-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .search-bar {
-            display: flex;
-            margin-bottom: 1.5rem;
-        }
-
-        .search-input {
-            flex: 1;
-            padding: 1rem;
-            border: 1px solid var(--border);
-            border-radius: 0.5rem 0 0 0.5rem;
-            font-size: 1rem;
-        }
-
-        .search-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 0 1.5rem;
-            border-radius: 0 0.5rem 0.5rem 0;
-            cursor: pointer;
-        }
-
-        .skill-chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            justify-content: center;
-        }
-
-        .skill-chip {
-            background: var(--light);
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
-            font-size: 0.9rem;
-            border: 1px solid var(--border);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .skill-chip:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* How It Works */
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .section-title p {
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .how-it-works {
-            padding: 4rem 0;
-        }
-
-        .steps {
-            display: flex;
-            justify-content: space-between;
-            gap: 2rem;
-        }
-
-        .step {
-            flex: 1;
-            text-align: center;
-            padding: 2rem 1rem;
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
-
-        .step-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .step h3 {
-            margin-bottom: 1rem;
-        }
-
-        .step p {
-            color: var(--gray);
-        }
-
-        /* Featured Talent */
-        .featured-talent {
-            padding: 4rem 0;
-            background-color: var(--card-bg);
-        }
-
-        .talent-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .talent-card {
-            background: var(--light);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s;
-        }
-
-        .talent-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .talent-header {
-            padding: 1.5rem;
-            text-align: center;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .talent-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: var(--primary);
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2rem;
-        }
-
-        .talent-name {
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .talent-title {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .talent-rating {
-            color: #fbbf24;
-        }
-
-        .talent-body {
-            padding: 1.5rem;
-        }
-
-        .talent-skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .talent-skill {
-            background: rgba(37, 99, 235, 0.1);
-            color: var(--primary);
-            padding: 0.3rem 0.7rem;
-            border-radius: 1rem;
-            font-size: 0.8rem;
-        }
-
-        .talent-stats {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-
-        .talent-footer {
-            padding: 1rem 1.5rem;
-            border-top: 1px solid var(--border);
-            text-align: center;
-        }
-
-        /* Why Choose Inbit */
-        .why-choose {
-            padding: 4rem 0;
-        }
-
-        .trust-points {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .trust-point {
-            text-align: center;
-            padding: 2rem 1rem;
-        }
-
-        .trust-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .trust-point h3 {
-            margin-bottom: 1rem;
-        }
-
-        .trust-point p {
-            color: var(--gray);
-        }
-
-        /* Process Snapshot */
-        .process-snapshot {
-            padding: 4rem 0;
-            background-color: var(--card-bg);
-        }
-
-        .process-flow {
-            display: flex;
-            justify-content: space-between;
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .process-flow::before {
-            content: '';
-            position: absolute;
-            top: 40px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--primary);
-            z-index: 1;
-        }
-
-        .process-step {
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            width: 150px;
-        }
-
-        .process-circle {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 1.5rem;
-        }
-
-        .process-step h4 {
-            margin-bottom: 0.5rem;
-        }
-
-        .process-step p {
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 4rem 0;
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .testimonial-text::before {
-            content: '"';
-            font-size: 4rem;
-            color: var(--primary);
-            opacity: 0.2;
-            position: absolute;
-            top: -20px;
-            left: -10px;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary);
-            margin-right: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-
-        .author-info h4 {
-            margin-bottom: 0.2rem;
-        }
-
-        .author-info p {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-        /* Pricing */
-        .pricing {
-            padding: 4rem 0;
-            background-color: var(--card-bg);
-        }
-
-        .pricing-content {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .fee-highlight {
-            background: rgba(16, 185, 129, 0.1);
-            border-left: 4px solid var(--secondary);
-            padding: 1.5rem;
-            margin: 2rem 0;
-            text-align: left;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 4rem 0 2rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-column h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: #d1d5db;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #374151;
-            color: #9ca3af;
-            font-size: 0.9rem;
-        }
-
-        .halal-badge {
-            display: inline-flex;
-            align-items: center;
-            background: rgba(16, 185, 129, 0.2);
-            color: var(--secondary);
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
-            margin-top: 1rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .hero-buttons {
-                justify-content: center;
-            }
-            
-            .steps {
-                flex-direction: column;
-            }
-            
-            .process-flow {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .process-flow::before {
-                display: none;
-            }
-            
-            .process-step {
-                margin-bottom: 2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero-stats {
-                justify-content: center;
-            }
-            
-            .search-bar {
-                flex-direction: column;
-            }
-            
-            .search-input {
-                border-radius: 0.5rem;
-                margin-bottom: 1rem;
-            }
-            
-            .search-btn {
-                border-radius: 0.5rem;
-                padding: 1rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="app.css">
 </head>
 <body>
     <!-- Header & Navigation -->
@@ -753,20 +18,52 @@
                 
                 <div class="nav-links">
                     <a href="#">Home</a>
-                    <a href="#">Explore Jobs</a>
-                    <a href="#">Find Talent</a>
-                    <a href="#">Post a Job</a>
-                    <a href="#">Messages</a>
-                    <a href="#">Contracts</a>
-                    <a href="#">Notifications</a>
-                    <a href="#">Fees</a>
-                    <a href="#">Admin</a>
-                    <a href="#">Help / FAQ</a>
+                    <a href="/jobs">Explore Jobs</a>
+                    <a href="/freelancers">Find Talent</a>
+                    <a href="/jobs/new">Post a Job</a>
+                    <a href="/messages">Messages</a>
+                    <a href="/contracts">Contracts</a>
+                    <a href="/notifications">Notifications</a>
+                    <a href="/freelancer/fees">Fees</a>
+                    <a href="/admin">Admin</a>
+                    <a href="/help">Help / FAQ</a>
                 </div>
                 
                 <div class="auth-buttons">
-                    <a href="#" class="btn btn-outline">Sign In</a>
-                    <a href="#" class="btn btn-primary">Sign Up</a>
+                    <div class="auth-dropdown">
+                        <button class="btn btn-outline auth-toggle">
+                            Sign In <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="auth-dropdown-menu">
+                            <a href="/login?role=client" class="auth-option">
+                                <i class="fas fa-user-tie"></i>
+                                <span>Client Login</span>
+                            </a>
+                            <a href="/login?role=freelancer" class="auth-option">
+                                <i class="fas fa-code"></i>
+                                <span>Freelancer Login</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="auth-dropdown">
+                        <button class="btn btn-primary auth-toggle">
+                            Sign Up <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="auth-dropdown-menu">
+                            <a href="/signup?role=client" class="auth-option">
+                                <i class="fas fa-user-tie"></i>
+                                <span>Join as Client</span>
+                                <small>Hire talent for your projects</small>
+                            </a>
+                            <a href="/signup?role=freelancer" class="auth-option">
+                                <i class="fas fa-code"></i>
+                                <span>Join as Freelancer</span>
+                                <small>Find work and grow your career</small>
+                            </a>
+                        </div>
+                    </div>
+                    
                     <button class="dark-mode-toggle" id="darkModeToggle">
                         <i class="fas fa-moon"></i>
                     </button>
@@ -786,8 +83,8 @@
                 <p>Fast matches, Shariah-compliant contracts, admin quality checks — pay only when work is validated.</p>
                 
                 <div class="hero-buttons">
-                    <a href="#" class="btn btn-primary">Hire Talent</a>
-                    <a href="#" class="btn btn-secondary">Find Work</a>
+                    <a href="/signup?role=client" class="btn btn-primary">Hire Talent</a>
+                    <a href="/signup?role=freelancer" class="btn btn-secondary">Find Work</a>
                 </div>
                 
                 <div class="hero-stats">
@@ -845,7 +142,7 @@
             <div class="search-container">
                 <div class="search-bar">
                     <input type="text" class="search-input" placeholder="Search for skills, services, or freelancers...">
-                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <button class="search-btn"><i class="fas fa-search"></i> Search</button>
                 </div>
                 
                 <div class="skill-chips">
@@ -935,7 +232,7 @@
                         </div>
                     </div>
                     <div class="talent-footer">
-                        <a href="#" class="btn btn-outline">View Profile</a>
+                        <a href="/freelancers/ahmed-mahmoud" class="btn btn-outline">View Profile</a>
                     </div>
                 </div>
                 
@@ -967,7 +264,7 @@
                         </div>
                     </div>
                     <div class="talent-footer">
-                        <a href="#" class="btn btn-outline">View Profile</a>
+                        <a href="/freelancers/sara-ahmed" class="btn btn-outline">View Profile</a>
                     </div>
                 </div>
                 
@@ -999,9 +296,13 @@
                         </div>
                     </div>
                     <div class="talent-footer">
-                        <a href="#" class="btn btn-outline">View Profile</a>
+                        <a href="/freelancers/muhammad-khan" class="btn btn-outline">View Profile</a>
                     </div>
                 </div>
+            </div>
+            
+            <div class="section-cta">
+                <a href="/freelancers" class="btn btn-primary">Browse All Freelancers</a>
             </div>
         </div>
     </section>
@@ -1203,14 +504,15 @@
                 <div class="fee-highlight">
                     <h3>Platform Fee: 5%</h3>
                     <p>We charge a 5% platform fee on completed projects — payable by freelancer after completion. Always transparent with no hidden charges.</p>
-                    <a href="#">View full fee policy</a>
+                    <a href="/help/fee-policy">View full fee policy</a>
                 </div>
                 
                 <p>For clients: Post jobs and hire talent for free. Only pay the freelancer's agreed rate upon satisfactory completion.</p>
                 <p>For freelancers: Keep 95% of your earnings. The 5% platform fee covers admin quality checks, secure contracts, and payment protection.</p>
                 
-                <div style="margin-top: 2rem;">
-                    <a href="#" class="btn btn-primary">Get Started Today</a>
+                <div class="pricing-cta">
+                    <a href="/signup?role=client" class="btn btn-primary">Start Hiring</a>
+                    <a href="/signup?role=freelancer" class="btn btn-secondary">Start Freelancing</a>
                 </div>
             </div>
         </div>
@@ -1232,33 +534,33 @@
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Explore Jobs</a></li>
-                        <li><a href="#">Find Talent</a></li>
-                        <li><a href="#">Post a Job</a></li>
-                        <li><a href="#">How It Works</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/jobs">Explore Jobs</a></li>
+                        <li><a href="/freelancers">Find Talent</a></li>
+                        <li><a href="/jobs/new">Post a Job</a></li>
+                        <li><a href="/how-it-works">How It Works</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Resources</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Community</a></li>
-                        <li><a href="#">Success Stories</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="/help">Help Center</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/community">Community</a></li>
+                        <li><a href="/success-stories">Success Stories</a></li>
+                        <li><a href="/faq">FAQ</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Legal</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Shariah Compliance</a></li>
-                        <li><a href="#">Fee Policy</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/shariah-compliance">Shariah Compliance</a></li>
+                        <li><a href="/fee-policy">Fee Policy</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
@@ -1269,59 +571,6 @@
         </div>
     </footer>
 
-    <script>
-        // Dark Mode Toggle
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const darkModeIcon = darkModeToggle.querySelector('i');
-        
-        darkModeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            
-            if (document.body.classList.contains('dark-mode')) {
-                darkModeIcon.classList.remove('fa-moon');
-                darkModeIcon.classList.add('fa-sun');
-            } else {
-                darkModeIcon.classList.remove('fa-sun');
-                darkModeIcon.classList.add('fa-moon');
-            }
-        });
-        
-        // Mobile Menu Toggle (placeholder functionality)
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        });
-        
-        // Update stats with animation
-        function animateValue(obj, start, end, duration) {
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                obj.innerHTML = Math.floor(progress * (end - start) + start) + "+";
-                if (progress < 1) {
-                    window.requestAnimationFrame(step);
-                }
-            };
-            window.requestAnimationFrame(step);
-        }
-        
-        // Animate stats when they come into view
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const statNumbers = document.querySelectorAll('.stat-number');
-                    animateValue(statNumbers[0], 0, 5000, 2000);
-                    animateValue(statNumbers[1], 0, 2500, 2000);
-                    // Don't animate the third stat (24h)
-                    observer.disconnect();
-                }
-            });
-        });
-        
-        observer.observe(document.querySelector('.hero-stats'));
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>

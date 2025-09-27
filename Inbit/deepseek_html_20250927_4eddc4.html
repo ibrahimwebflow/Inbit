@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbit - Halal Freelancing Marketplace</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-handshake"></i> Inbit
+                </a>
+                
+                <div class="nav-links">
+                    <a href="#">Home</a>
+                    <a href="/jobs">Explore Jobs</a>
+                    <a href="/freelancers">Find Talent</a>
+                    <a href="/jobs/new">Post a Job</a>
+                    <a href="/messages">Messages</a>
+                    <a href="/contracts">Contracts</a>
+                    <a href="/notifications">Notifications</a>
+                    <a href="/freelancer/fees">Fees</a>
+                    <a href="/admin">Admin</a>
+                    <a href="/help">Help / FAQ</a>
+                </div>
+                
+                <div class="auth-buttons">
+                    <div class="auth-dropdown">
+                        <button class="btn btn-outline auth-toggle">
+                            Sign In <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="auth-dropdown-menu">
+                            <a href="/login?role=client" class="auth-option">
+                                <i class="fas fa-user-tie"></i>
+                                <span>Client Login</span>
+                            </a>
+                            <a href="/login?role=freelancer" class="auth-option">
+                                <i class="fas fa-code"></i>
+                                <span>Freelancer Login</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="auth-dropdown">
+                        <button class="btn btn-primary auth-toggle">
+                            Sign Up <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="auth-dropdown-menu">
+                            <a href="/signup?role=client" class="auth-option">
+                                <i class="fas fa-user-tie"></i>
+                                <span>Join as Client</span>
+                                <small>Hire talent for your projects</small>
+                            </a>
+                            <a href="/signup?role=freelancer" class="auth-option">
+                                <i class="fas fa-code"></i>
+                                <span>Join as Freelancer</span>
+                                <small>Find work and grow your career</small>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <button class="dark-mode-toggle" id="darkModeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Find trusted halal freelancers or grow your freelance career</h1>
+                <p>Fast matches, Shariah-compliant contracts, admin quality checks — pay only when work is validated.</p>
+                
+                <div class="hero-buttons">
+                    <a href="/signup?role=client" class="btn btn-primary">Hire Talent</a>
+                    <a href="/signup?role=freelancer" class="btn btn-secondary">Find Work</a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">5,000+</div>
+                        <div class="stat-label">Freelancers</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">2,500+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24h</div>
+                        <div class="stat-label">Avg Match Time</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="dashboard-preview">
+                    <div class="dashboard-header">
+                        <h3>Project Dashboard</h3>
+                        <span>Active</span>
+                    </div>
+                    <div class="dashboard-content">
+                        <div class="dashboard-card">
+                            <h4>Web Design</h4>
+                            <p>Client: Ahmed</p>
+                            <p>Status: In Progress</p>
+                        </div>
+                        <div class="dashboard-card">
+                            <h4>Mobile App</h4>
+                            <p>Client: Sara</p>
+                            <p>Status: Review</p>
+                        </div>
+                        <div class="dashboard-card">
+                            <h4>Logo Design</h4>
+                            <p>Client: Muhammad</p>
+                            <p>Status: Completed</p>
+                        </div>
+                        <div class="dashboard-card">
+                            <h4>Content Writing</h4>
+                            <p>Client: Fatima</p>
+                            <p>Status: Pending</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="Search for skills, services, or freelancers...">
+                    <button class="search-btn"><i class="fas fa-search"></i> Search</button>
+                </div>
+                
+                <div class="skill-chips">
+                    <div class="skill-chip">Web Development</div>
+                    <div class="skill-chip">Graphic Design</div>
+                    <div class="skill-chip">Digital Marketing</div>
+                    <div class="skill-chip">Content Writing</div>
+                    <div class="skill-chip">Mobile App</div>
+                    <div class="skill-chip">UI/UX Design</div>
+                    <div class="skill-chip">SEO</div>
+                    <div class="skill-chip">Video Editing</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How Inbit Works</h2>
+                <p>Our simple 3-step process ensures quality work and secure transactions for both clients and freelancers</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>1. Post & Match</h3>
+                    <p>Clients post jobs with required skills. Our system automatically matches with qualified freelancers.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>2. Hire & Collaborate</h3>
+                    <p>Review matches, hire the best fit, and collaborate through our secure chat and milestone system.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>3. Deliver & Release</h3>
+                    <p>Freelancer submits work, admin quality checks, then client releases payment upon satisfaction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Talent -->
+    <section class="featured-talent">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Freelance Talent</h2>
+                <p>Meet some of our top-performing freelancers with verified skills and excellent ratings</p>
+            </div>
+            
+            <div class="talent-grid">
+                <!-- Freelancer 1 -->
+                <div class="talent-card">
+                    <div class="talent-header">
+                        <div class="talent-avatar">AM</div>
+                        <div class="talent-name">Ahmed Mahmoud</div>
+                        <div class="talent-title">Senior Web Developer</div>
+                        <div class="talent-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.7</span>
+                        </div>
+                    </div>
+                    <div class="talent-body">
+                        <div class="talent-skills">
+                            <span class="talent-skill">HTML/CSS</span>
+                            <span class="talent-skill">JavaScript</span>
+                            <span class="talent-skill">React</span>
+                            <span class="talent-skill">Node.js</span>
+                        </div>
+                        <div class="talent-stats">
+                            <span><i class="fas fa-briefcase"></i> 42 projects</span>
+                            <span><i class="fas fa-clock"></i> 98% on time</span>
+                        </div>
+                    </div>
+                    <div class="talent-footer">
+                        <a href="/freelancers/ahmed-mahmoud" class="btn btn-outline">View Profile</a>
+                    </div>
+                </div>
+                
+                <!-- Freelancer 2 -->
+                <div class="talent-card">
+                    <div class="talent-header">
+                        <div class="talent-avatar">SA</div>
+                        <div class="talent-name">Sara Ahmed</div>
+                        <div class="talent-title">UI/UX Designer</div>
+                        <div class="talent-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>5.0</span>
+                        </div>
+                    </div>
+                    <div class="talent-body">
+                        <div class="talent-skills">
+                            <span class="talent-skill">Figma</span>
+                            <span class="talent-skill">Adobe XD</span>
+                            <span class="talent-skill">Wireframing</span>
+                            <span class="talent-skill">Prototyping</span>
+                        </div>
+                        <div class="talent-stats">
+                            <span><i class="fas fa-briefcase"></i> 28 projects</span>
+                            <span><i class="fas fa-clock"></i> 100% on time</span>
+                        </div>
+                    </div>
+                    <div class="talent-footer">
+                        <a href="/freelancers/sara-ahmed" class="btn btn-outline">View Profile</a>
+                    </div>
+                </div>
+                
+                <!-- Freelancer 3 -->
+                <div class="talent-card">
+                    <div class="talent-header">
+                        <div class="talent-avatar">MK</div>
+                        <div class="talent-name">Muhammad Khan</div>
+                        <div class="talent-title">Digital Marketer</div>
+                        <div class="talent-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.3</span>
+                        </div>
+                    </div>
+                    <div class="talent-body">
+                        <div class="talent-skills">
+                            <span class="talent-skill">SEO</span>
+                            <span class="talent-skill">Social Media</span>
+                            <span class="talent-skill">Google Ads</span>
+                            <span class="talent-skill">Analytics</span>
+                        </div>
+                        <div class="talent-stats">
+                            <span><i class="fas fa-briefcase"></i> 35 projects</span>
+                            <span><i class="fas fa-clock"></i> 95% on time</span>
+                        </div>
+                    </div>
+                    <div class="talent-footer">
+                        <a href="/freelancers/muhammad-khan" class="btn btn-outline">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-cta">
+                <a href="/freelancers" class="btn btn-primary">Browse All Freelancers</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Inbit -->
+    <section class="why-choose">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Inbit</h2>
+                <p>We're committed to providing a halal, transparent, and secure freelancing experience</p>
+            </div>
+            
+            <div class="trust-points">
+                <div class="trust-point">
+                    <div class="trust-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Admin Quality-Check</h3>
+                    <p>Every final submission is reviewed by our admin team to ensure quality standards are met.</p>
+                </div>
+                
+                <div class="trust-point">
+                    <div class="trust-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Contract Safety</h3>
+                    <p>Clear, Shariah-compliant contracts protect both clients and freelancers throughout the project.</p>
+                </div>
+                
+                <div class="trust-point">
+                    <div class="trust-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Transparent Fees</h3>
+                    <p>Our 5% platform fee is clearly explained upfront with no hidden charges.</p>
+                </div>
+                
+                <div class="trust-point">
+                    <div class="trust-icon">
+                        <i class="fas fa-check-double"></i>
+                    </div>
+                    <h3>Payment Proof</h3>
+                    <p>Secure payment tracking with proof uploads and confirmation at each stage.</p>
+                </div>
+                
+                <div class="trust-point">
+                    <div class="trust-icon">
+                        <i class="fas fa-star-and-crescent"></i>
+                    </div>
+                    <h3>Halal Policy</h3>
+                    <p>We strictly prohibit haram services and ensure all operations comply with Islamic principles.</p>
+                </div>
+                
+                <div class="trust-point">
+                    <div class="trust-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Dedicated Support</h3>
+                    <p>Our support team is available to help resolve any issues throughout your project.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Snapshot -->
+    <section class="process-snapshot">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Detailed Process</h2>
+                <p>From initial contact to final delivery, we ensure transparency and quality at every step</p>
+            </div>
+            
+            <div class="process-flow">
+                <div class="process-step">
+                    <div class="process-circle">1</div>
+                    <h4>Job Posting</h4>
+                    <p>Client posts job with required skills and budget</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-circle">2</div>
+                    <h4>Matching</h4>
+                    <p>System matches with qualified freelancers</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-circle">3</div>
+                    <h4>Hiring</h4>
+                    <p>Client selects and hires a freelancer</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-circle">4</div>
+                    <h4>Preview</h4>
+                    <p>Freelancer submits preview for client review</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-circle">5</div>
+                    <h4>Final Submission</h4>
+                    <p>Freelancer submits final work for admin check</p>
+                </div>
+            </div>
+            
+            <div class="process-flow">
+                <div class="process-step">
+                    <div class="process-circle">6</div>
+                    <h4>Admin Approval</h4>
+                    <p>Admin reviews and approves final submission</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-circle">7</div>
+                    <h4>Contract Creation</h4>
+                    <p>Client creates contract with payment terms</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-circle">8</div>
+                    <h4>Payment Details</h4>
+                    <p>Freelancer provides payment details</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-circle">9</div>
+                    <h4>Payment Proof</h4>
+                    <p>Client uploads payment proof</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-circle">10</div>
+                    <h4>Release</h4>
+                    <p>Admin verifies and releases final files</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Success Stories</h2>
+                <p>See what our clients and freelancers are saying about their experience with Inbit</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Inbit made it so easy to find a qualified developer for our e-commerce site. The admin quality check gave me peace of mind that the work would be done right.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">OJ</div>
+                        <div class="author-info">
+                            <h4>Omar Jamil</h4>
+                            <p>Client, E-commerce Store Owner</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        As a freelancer, I appreciate the transparent fee structure and the halal approach to business. The milestone system helps me manage client expectations effectively.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">FA</div>
+                        <div class="author-info">
+                            <h4>Fatima Ahmed</h4>
+                            <p>Freelancer, Graphic Designer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        The payment proof system eliminated any concerns about getting paid for my work. I've completed 15 projects through Inbit and every payment was smooth.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">YK</div>
+                        <div class="author-info">
+                            <h4>Yusuf Khan</h4>
+                            <p>Freelancer, Mobile App Developer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Transparent Pricing</h2>
+                <p>No hidden fees, no surprises - just fair pricing for quality work</p>
+            </div>
+            
+            <div class="pricing-content">
+                <div class="fee-highlight">
+                    <h3>Platform Fee: 5%</h3>
+                    <p>We charge a 5% platform fee on completed projects — payable by freelancer after completion. Always transparent with no hidden charges.</p>
+                    <a href="/help/fee-policy">View full fee policy</a>
+                </div>
+                
+                <p>For clients: Post jobs and hire talent for free. Only pay the freelancer's agreed rate upon satisfactory completion.</p>
+                <p>For freelancers: Keep 95% of your earnings. The 5% platform fee covers admin quality checks, secure contracts, and payment protection.</p>
+                
+                <div class="pricing-cta">
+                    <a href="/signup?role=client" class="btn btn-primary">Start Hiring</a>
+                    <a href="/signup?role=freelancer" class="btn btn-secondary">Start Freelancing</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Inbit</h3>
+                    <p>Connecting clients with trusted halal freelancers through transparent, Shariah-compliant processes.</p>
+                    <div class="halal-badge">
+                        <i class="fas fa-star-and-crescent"></i>
+                        <span>Shariah-Compliant Platform</span>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/jobs">Explore Jobs</a></li>
+                        <li><a href="/freelancers">Find Talent</a></li>
+                        <li><a href="/jobs/new">Post a Job</a></li>
+                        <li><a href="/how-it-works">How It Works</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="/help">Help Center</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/community">Community</a></li>
+                        <li><a href="/success-stories">Success Stories</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/shariah-compliance">Shariah Compliance</a></li>
+                        <li><a href="/fee-policy">Fee Policy</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Inbit - Halal Freelancing Marketplace. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

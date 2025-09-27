@@ -473,3 +473,56 @@ window.addEventListener('resize', debounce(function() {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { debounce, animateValue };
 }
+// Mobile Menu Toggle
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+const authButtons = document.querySelector('.auth-buttons');
+
+mobileMenuBtn.addEventListener('click', () => {
+    const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+    
+    // Toggle mobile menu
+    navLinks.classList.toggle('active');
+    authButtons.classList.toggle('active');
+    
+    // Update aria attributes for accessibility
+    mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+    
+    // Change menu icon
+    const menuIcon = mobileMenuBtn.querySelector('i');
+    if (menuIcon.classList.contains('fa-bars')) {
+        menuIcon.classList.remove('fa-bars');
+        menuIcon.classList.add('fa-times');
+    } else {
+        menuIcon.classList.remove('fa-times');
+        menuIcon.classList.add('fa-bars');
+    }
+});
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.nav-links a, .auth-buttons a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+            navLinks.classList.remove('active');
+            authButtons.classList.remove('active');
+            mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+            mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        }
+    });
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768) {
+        if (!e.target.closest('.navbar') && 
+            !e.target.closest('.nav-links') && 
+            !e.target.closest('.auth-buttons')) {
+            navLinks.classList.remove('active');
+            authButtons.classList.remove('active');
+            mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+            mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        }
+    }
+});

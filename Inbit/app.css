@@ -1407,3 +1407,24 @@ input:focus {
     color: var(--primary);   /* or any colour you like */
     background: rgba(255,255,255,.08);  /* optional subtle background */
 }
+
+
+/* 768px and below */
+@media (max-width: 768px){
+    /* keep your existing rules ... */
+
+    /* but override for the hamburger */
+    .mobile-menu-btn{
+        display:block !important;   /* make sure it shows */
+        position:absolute;          /* pull it out of flow */
+        right:1rem;                 /* align to right edge of header */
+        top:50%;
+        transform:translateY(-50%);
+        z-index:101;                /* above everything else */
+        color:var(--primary);       /* high-contrast colour */
+        background:rgba(0,0,0,.05);
+        border-radius:50%;
+        width:44px;
+        height:44px;
+    }
+    }

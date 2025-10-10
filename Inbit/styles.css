@@ -2093,3 +2093,48 @@ body {
 #earlyAccessBanner:not(.visible) {
   display: none !important;
 }
+
+/* === 768 px breakpoint: keep desktop nav from breaking words === */
+@media (min-width: 768px) and (max-width: 1059px) {
+  .desktop-nav ul {
+    gap: 1.2rem;           /* was 1.5rem – tighten slightly */
+  }
+  .desktop-nav a {
+    white-space: nowrap;   /* never break the word itself  */
+    flex-shrink: 0;        /* don’t allow the link to shrink */
+    padding: 0.4rem 0.6rem;/* slightly smaller click-area */
+    font-size: 0.875rem;   /* 14 px instead of 16 px */
+  }
+
+  /* optional: let the whole nav bar grow if space is available */
+  .desktop-nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* ========= 768 px – 900 px : stop button & logo text breaking ========= */
+@media (min-width: 768px) and (max-width: 1200px) {
+  /* 1. Logo text – let it stay on one line */
+  .logo-text {
+    white-space: nowrap;
+    font-size: 1.1rem;               /* slightly smaller */
+  }
+
+  /* 2. Header action buttons – no wrap, no shrink */
+  .header-actions {
+    gap: 0.5rem;                     /* tighter gap */
+  }
+  .header-actions .btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 0.4rem 0.8rem;          /* smaller hit-area */
+    font-size: 0.8125rem;            /* 13 px */
+  }
+  /* keep the primary button prominent */
+  .header-actions .btn-primary {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
+}
